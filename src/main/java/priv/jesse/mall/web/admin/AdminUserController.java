@@ -18,21 +18,11 @@ public class AdminUserController {
     @Autowired
     private UserService userService;
 
-    /**
-     * 打开用户列表页面
-     * @return
-     */
     @RequestMapping("/toList.html")
     public String toList() {
         return "admin/user/list";
     }
 
-    /**
-     * 打开编辑页面
-     * @param id
-     * @param map
-     * @return
-     */
     @RequestMapping("/toEdit.html")
     public String toEdit(int id, Map<String, Object> map) {
         User user = userService.findById(id);
@@ -40,12 +30,6 @@ public class AdminUserController {
         return "admin/user/edit";
     }
 
-    /**
-     * 获取所有用户列表
-     *
-     * @param pageindex
-     * @return
-     */
     @ResponseBody
     @RequestMapping("/list.do")
     public ResultBean<List<User>> findAllUser(int pageindex,

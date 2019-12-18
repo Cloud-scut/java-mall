@@ -15,19 +15,13 @@ public class Classification implements Serializable {
     @GeneratedValue
     @Column
     private Integer id;
-    /**
-     * 上级分类Id
-     */
+
     @Column
     private Integer parentId;
-    /**
-     * 分类名称
-     */
+
     @Column
     private String cname;
-    /**
-     * 类型 1一级分类 2二级分类
-     */
+
     @Column
     private Integer type;
 

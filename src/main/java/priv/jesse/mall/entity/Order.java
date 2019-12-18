@@ -14,41 +14,26 @@ public class Order implements Serializable {
     @GeneratedValue
     @Column
     private Integer id;
-    /**
-     * 订单总价
-     */
+
     @Column
-    private Double total;
-    /**
-     * 订单状态 1:未付款 2:等待发货 3:等待收货 4:订单完成
-     */
+    private Double total;//总价
     @Column
-    private Integer state;
-    /**
-     * 订单时间
-     */
+    private Integer state;//订单状态
+
     @Column
-    private Date orderTime;
-    /**
-     * 收货人姓名
-     */
-    @Column(name = "`name`")
+    private Date orderTime;//订单时间
+
+    @Column(name = "`name`")//收货人姓名
     private String name;
-    /**
-     * 收货人联系电话
-     */
+
     @Column
-    private String phone;
-    /**
-     * 收货地址
-     */
+    private String phone;//收货人联系电话
+
     @Column
-    private String addr;
-    /**
-     * 用户Id
-     */
+    private String addr;//收货地址
+
     @Column
-    private Integer userId;
+    private Integer userId;//用户id
 
     private static final long serialVersionUID = 1L;
 

@@ -12,24 +12,16 @@ public class OrderItem implements Serializable {
     @GeneratedValue
     @Column
     private Integer id;
-    /**
-     * 订单Id
-     */
+
     @Column
     private Integer orderId;
-    /**
-     * 商品Id
-     */
+
     @Column
     private Integer productId;
-    /**
-     * 数量
-     */
+
     @Column
     private Integer count;
-    /**
-     * 总价
-     */
+
     @Column
     private Double subTotal;
 

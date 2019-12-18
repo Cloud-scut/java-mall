@@ -15,9 +15,6 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 
-/**
- * WEB层日志切面,用来记录请求信息
- */
 @Aspect
 @Order(5)
 @Component

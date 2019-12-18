@@ -19,32 +19,16 @@ public class AdminController {
     @Autowired
     private AdminUserService adminUserService;
 
-    /**
-     * 访问首页
-     *
-     * @return
-     */
     @RequestMapping("/toIndex.html")
     public String toIndex() {
         return "admin/index";
     }
 
-    /**
-     * 访问登录页面
-     *
-     * @return
-     */
     @RequestMapping("/toLogin.html")
     public String toLogin() {
         return "admin/login";
     }
 
-    /**
-     * 登录请求
-     *
-     * @param username
-     * @param password
-     */
     //@ResponseBody
     @RequestMapping(method = RequestMethod.POST, value = "/login.do")
     public void login(String username, String password, HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -52,12 +36,6 @@ public class AdminController {
         response.sendRedirect("/mall/admin/toIndex.html");
     }
 
-    /**
-     * 退出登录
-     * @param request
-     * @param response
-     * @throws IOException
-     */
     @RequestMapping("/logout.do")
     public void logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
         request.getSession().removeAttribute("login_user");

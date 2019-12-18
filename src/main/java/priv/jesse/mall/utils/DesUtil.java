@@ -12,11 +12,6 @@ import javax.crypto.spec.DESKeySpec;
 import java.io.IOException;
 import java.security.SecureRandom;
 
-/**
- * 加密解密工具类
- * @author hfb
- * @date 2017/9/29
- */
 public class DesUtil {
     private final static String DES = "DES";
 
@@ -28,13 +23,6 @@ public class DesUtil {
 
     }
 
-    /**
-     * Description 根据键值进行加密
-     * @param data
-     * @param key  加密键byte数组
-     * @return
-     * @throws Exception
-     */
     public static String encrypt(String data, String key) throws Exception {
         byte[] bt = encrypt(data.getBytes(), key.getBytes());
 //        String strs = new BASE64Encoder().encode(bt);
@@ -43,14 +31,6 @@ public class DesUtil {
         return strs;
     }
 
-    /**
-     * Description 根据键值进行解密
-     * @param data
-     * @param key  加密键byte数组
-     * @return
-     * @throws IOException
-     * @throws Exception
-     */
     public static String decrypt(String data, String key) throws IOException,
             Exception {
         if (data == null)
@@ -63,13 +43,6 @@ public class DesUtil {
         return new String(bt);
     }
 
-    /**
-     * Description 根据键值进行加密
-     * @param data
-     * @param key  加密键byte数组
-     * @return
-     * @throws Exception
-     */
     private static byte[] encrypt(byte[] data, byte[] key) throws Exception {
         // 生成一个可信任的随机数源
         SecureRandom sr = new SecureRandom();
@@ -90,14 +63,6 @@ public class DesUtil {
         return cipher.doFinal(data);
     }
 
-
-    /**
-     * Description 根据键值进行解密
-     * @param data
-     * @param key  加密键byte数组
-     * @return
-     * @throws Exception
-     */
     private static byte[] decrypt(byte[] data, byte[] key) throws Exception {
         // 生成一个可信任的随机数源
         SecureRandom sr = new SecureRandom();

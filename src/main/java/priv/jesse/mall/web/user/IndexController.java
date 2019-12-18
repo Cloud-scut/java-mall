@@ -7,19 +7,12 @@ import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class IndexController {
-    /**
-     * 打开首页
-     * @return
-     */
+
     @RequestMapping("/index.html")
     public String toIndex() {
         return "mall/index";
     }
 
-    /**
-     * 访问根目录转发到首页
-     * @return
-     */
     @RequestMapping("/")
     public String index(){
         return "forward:/index.html";

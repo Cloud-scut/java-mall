@@ -20,19 +20,11 @@ public class AdminOrderController {
     @Autowired
     private OrderService orderService;
 
-    /**
-     * 打开订单列表页面
-     * @return
-     */
     @RequestMapping("/toList.html")
     public String toList() {
         return "admin/order/list";
     }
 
-    /**
-     * 获取所有订单的总数
-     * @return
-     */
     @ResponseBody
     @RequestMapping("/getTotal.do")
     public ResultBean<Integer> getTotal() {
@@ -41,12 +33,6 @@ public class AdminOrderController {
         return new ResultBean<>(total);
     }
 
-    /**
-     * 获取所有订单
-     * @param pageindex
-     * @param pageSize
-     * @return
-     */
     @ResponseBody
     @RequestMapping("/list.do")
     public ResultBean<List<Order>> listData(int pageindex,
@@ -56,11 +42,6 @@ public class AdminOrderController {
         return new ResultBean<>(list);
     }
 
-    /**
-     * 获取订单项
-     * @param orderId
-     * @return
-     */
     @ResponseBody
     @RequestMapping("/getDetail.do")
     public ResultBean<List<OrderItem>> getDetail(int orderId) {
@@ -68,11 +49,6 @@ public class AdminOrderController {
         return new ResultBean<>(list);
     }
 
-    /**
-     * 发货
-     * @param id
-     * @return
-     */
     @ResponseBody
     @RequestMapping("/send.do")
     public ResultBean<Boolean> send(int id) {

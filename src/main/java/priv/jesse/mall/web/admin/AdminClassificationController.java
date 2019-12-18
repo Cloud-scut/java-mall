@@ -18,16 +18,10 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/admin/classification")
-public class AdminClassificationController {
+public class  AdminClassificationController {
     @Autowired
     private ClassificationService classificationService;
 
-    /**
-     * 返回列表页面
-     *
-     * @param type
-     * @return
-     */
     @RequestMapping("/toList.html")
     public String toList(int type) {
         if (type == 1) {// 一级分类页面
@@ -39,12 +33,6 @@ public class AdminClassificationController {
         }
     }
 
-    /**
-     * 打开添加分类页面
-     *
-     * @param type
-     * @return
-     */
     @RequestMapping("/toAdd.html")
     public String toAdd(int type) {
         if (type == 1) {// 一级分类页面
@@ -56,14 +44,7 @@ public class AdminClassificationController {
         }
     }
 
-    /**
-     * 打开编辑页面
-     *
-     * @param id
-     * @param type
-     * @param map
-     * @return
-     */
+
     @RequestMapping("/toEdit.html")
     public String toEdit(int id, int type, Map<String, Object> map) {
         Classification classification = classificationService.findById(id);

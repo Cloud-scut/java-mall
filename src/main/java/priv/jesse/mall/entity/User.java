@@ -12,34 +12,22 @@ public class User implements Serializable {
     @GeneratedValue
     @Column
     private Integer id;
-    /**
-     * 用户名
-     */
+
     @Column
     private String username;
-    /**
-     * 密码
-     */
+
     @Column
     private String password;
-    /**
-     * 姓名
-     */
+
     @Column
     private String name;
-    /**
-     * 邮件
-     */
+
     @Column
     private String email;
-    /**
-     * 电话
-     */
+
     @Column
     private String phone;
-    /**
-     * 地址
-     */
+
     @Column
     private String addr;
 

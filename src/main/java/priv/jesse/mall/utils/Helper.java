@@ -1,9 +1,5 @@
 package priv.jesse.mall.utils;
 
-/**
- * @author hfb
- * @date 2017/9/29
- */
 public class Helper {
     private static String key = "wow!@#$%";
 
@@ -46,14 +42,8 @@ public class Helper {
         return sb.toString();
     }
 
-    /**
-     * 16进制字符集
-     */
     private static final char HEX_DIGITS[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
-    /**
-     * 将单个字节码转换成16进制字符串 * @param bt 目标字节 * @return 转换结果
-     */
     public static String byteToHex(byte bt) {
         return HEX_DIGITS[(bt & 0xf0) >> 4] + "" + HEX_DIGITS[bt & 0xf];
     }

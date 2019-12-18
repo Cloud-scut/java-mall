@@ -10,13 +10,6 @@ import java.security.MessageDigest;
 
 public class FileUtil {
 
-    /**
-     * 保存上传的文件
-     *
-     * @param file
-     * @return 文件下载的url
-     * @throws Exception
-     */
     public static String saveFile(MultipartFile file) throws Exception {
         if (file == null || file.isEmpty())
             return "";
@@ -33,12 +26,6 @@ public class FileUtil {
         return "/mall/admin/product/img/" + fileName;
     }
 
-    /**
-     * 获得文件的后缀名
-     *
-     * @param fileName
-     * @return
-     */
     public static String getPostfix(String fileName) {
         if (fileName == null || "".equals(fileName.trim())) {
             return "";

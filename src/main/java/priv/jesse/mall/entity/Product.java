@@ -12,44 +12,28 @@ public class Product implements Serializable {
     @GeneratedValue
     @Column
     private Integer id;
-    /**
-     * 商品标题
-     */
+
     @Column
     private String title;
-    /**
-     * 市场价
-     */
+
     @Column
     private Double marketPrice;
-    /**
-     * 商城价
-     */
+
     @Column
     private Double shopPrice;
-    /**
-     * 主图
-     */
+
     @Column
     private String image;
-    /**
-     * 描述
-     */
+
     @Column(name = "`desc`")
     private String desc;
-    /**
-     * 是否热门商品
-     */
+
     @Column
     private Integer isHot;
-    /**
-     * 二级分类Id
-     */
+
     @Column
     private Integer csid;
-    /**
-     * 商品创建日期
-     */
+
     @Column
     private Date pdate;
 

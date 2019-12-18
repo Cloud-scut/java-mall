@@ -17,12 +17,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.HashMap;
 
-/**
- * 权限拦截器
- *
- * @author hfb
- * @date 2017/9/18
- */
+
 @WebFilter
 public class AuthorizationFilter implements Filter {
 
@@ -78,13 +73,7 @@ public class AuthorizationFilter implements Filter {
         }
     }
 
-    /**
-     * @param request
-     * @param response
-     * @param chain
-     * @throws IOException
-     * @throws ServletException
-     */
+
     private void processAccessControl(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
         Object adminUser = request.getSession().getAttribute("login_user");
         Object user = request.getSession().getAttribute("user");
@@ -109,13 +98,6 @@ public class AuthorizationFilter implements Filter {
 
     }
 
-    /**
-     * 返回JOSN数据格式
-     *
-     * @param response
-     * @param object
-     * @throws IOException
-     */
     public static void responseJSON(HttpServletResponse response, Object object) throws IOException {
         response.setContentType("application/json;charset=utf-8");
         response.setCharacterEncoding("UTF-8");

@@ -4,9 +4,7 @@ package priv.jesse.mall.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 
-/**
- * 管理员用户
- */
+
 @Entity
 public class AdminUser implements Serializable {
     private static final long serialVersionUID = 1L;

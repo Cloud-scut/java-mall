@@ -2,25 +2,13 @@ package priv.jesse.mall.entity.pojo;
 
 import java.io.Serializable;
 
-/**
- * 接口返回数据模型
- *
- * @author hfb
- * @date 2017/9/18
- */
 public class ResultBean<T> implements Serializable {
     private static final long serialVersionUID = -6248298306422072592L;
-    /**
-     * 表示接口调用成功
-     */
+
     public static final int SUCCESS = 0;
-    /**
-     * 表示接口调用失败
-     */
+
     public static final int FAIL = 1;
-    /**
-     * 表示没有权限调用该接口
-     */
+
     public static final int NO_PERMISSION = 2;
 
     public static final String NO_LOGIN_MSG = "未登录";
@@ -30,9 +18,7 @@ public class ResultBean<T> implements Serializable {
 
     private String message = SUCC_MSG;
     private int state = SUCCESS;
-    /**
-     * 返回的数据
-     */
+
     private T data;
 
     public ResultBean() {
@@ -44,11 +30,6 @@ public class ResultBean<T> implements Serializable {
         this.data = data;
     }
 
-    /**
-     * 包装异常信息
-     *
-     * @param e
-     */
     public ResultBean(Throwable e) {
         super();
         this.message = e.getMessage();
