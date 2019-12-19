@@ -14,16 +14,13 @@ public class Classification implements Serializable {
     @Id
     @GeneratedValue
     @Column
-    private Integer id;
-
+    private Integer id;//类别编号
     @Column
-    private Integer parentId;
-
+    private Integer parentId;//父类别编号
     @Column
-    private String cname;
-
+    private String cname;//类别名称
     @Column
-    private Integer type;
+    private Integer type;//一级、二级类别（实际没有实现）
 
     private static final long serialVersionUID = 1L;
 

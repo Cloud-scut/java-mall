@@ -17,4 +17,5 @@ public interface ProductDao extends JpaRepository<Product, Integer> {
 
     List<Product> findByIsHot(int isHot,Pageable pageable);//找出有存货的商品
 
+    List<Product> findNew(Pageable pageable);
 }

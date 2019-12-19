@@ -26,12 +26,6 @@ public class ClassificationServiceImpl implements ClassificationService {
         return classificationDao.findByType(type);
     }
 
-    /**
-     * 按分类查询所有
-     *
-     * @param pageable
-     * @return
-     */
     @Override
     public Page<Classification> findAll(int type, Pageable pageable) {
         return classificationDao.findByType(type, pageable);
@@ -58,12 +52,6 @@ public class ClassificationServiceImpl implements ClassificationService {
         classificationDao.delete(id);
     }
 
-    /**
-     * 通过一级分类id查找它所有的二级分类
-     *
-     * @param cid
-     * @return
-     */
     @Override
     public List<Classification> findByParentId(int cid) {
         return classificationDao.findByParentId(cid);

@@ -15,57 +15,37 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
-
     @Override
     public User findById(int id) {
         return userDao.getOne(id);
-    }
-
+    }//根据id查询用户
     @Override
     public Page<User> findAll(Pageable pageable) {
         return userDao.findAll(pageable);
-    }
-
-    @Override
-    public List<User> findAllExample(Example<User> example) {
-        return userDao.findAll(example);
-    }
+    }//分页管理（没有实现）
 
     @Override
     public void update(User user) {
         userDao.save(user);
-    }
-
+    }//用户注册后更新到数据库
     @Override
     public int create(User user) {
         return userDao.save(user).getId();
-    }
-
+    }//返回新注册用户id
     @Override
     public void delById(int id) {
         userDao.delete(id);
-    }
-
-    /**
-     * 根据用户名查询
-     *
-     * @param username
-     * @return
-     */
+    }//根据id删除用户
     @Override
     public List<User> findByUsername(String username) {
         return userDao.findByUsername(username);
-    }
-
-    /**
-     * 检查登录
-     *
-     * @param username
-     * @param password
-     * @return
-     */
+    }//根据用户名查询用户
     @Override
     public User checkLogin(String username, String password) {
-        return userDao.findByUsernameAndPassword(username, password);
+        return userDao.findByUsernameAndPassword(username, password);//登录匹配
+    }
+    @Override
+    public List<User> findAllExample(Example<User> example) {
+        return userDao.findAll(example);
     }
 }

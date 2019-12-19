@@ -13,25 +13,19 @@ public class Order implements Serializable {
     @Id
     @GeneratedValue
     @Column
-    private Integer id;
-
+    private Integer id;//订单编号
     @Column
     private Double total;//总价
     @Column
     private Integer state;//订单状态
-
     @Column
     private Date orderTime;//订单时间
-
     @Column(name = "`name`")//收货人姓名
     private String name;
-
     @Column
     private String phone;//收货人联系电话
-
     @Column
     private String addr;//收货地址
-
     @Column
     private Integer userId;//用户id
 

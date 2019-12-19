@@ -7,22 +7,22 @@ import java.io.Serializable;
 
 @Entity
 public class AdminUser implements Serializable {
-    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue
     @Column
-    private Integer id;
+    private Integer id;//管理员id
     @Column(nullable = false)
-    private String username;
+    private String username;//管理员用户名
     @Column
-    private String password;
+    private String password;//管理员密码
 
     public AdminUser(Integer id, String username, String password) {
         this.id = id;
         this.username = username;
         this.password = password;
     }
-
+    private static final long serialVersionUID = 1L;
     public AdminUser() {
         super();
     }

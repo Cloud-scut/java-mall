@@ -26,7 +26,7 @@ public class AdminOrderController {
     }
 
     @ResponseBody
-    @RequestMapping("/getTotal.do")
+    @RequestMapping("/getTotal.do")//获取订单总价钱
     public ResultBean<Integer> getTotal() {
         Pageable pageable = new PageRequest(1, 15, null);
         int total = (int) orderService.findAll(pageable).getTotalElements();
@@ -34,7 +34,7 @@ public class AdminOrderController {
     }
 
     @ResponseBody
-    @RequestMapping("/list.do")
+    @RequestMapping("/list.do")//获取订单列表
     public ResultBean<List<Order>> listData(int pageindex,
                                             @RequestParam(value = "pageSize", defaultValue = "15") int pageSize) {
         Pageable pageable = new PageRequest(pageindex, pageSize, null);
@@ -43,7 +43,7 @@ public class AdminOrderController {
     }
 
     @ResponseBody
-    @RequestMapping("/getDetail.do")
+    @RequestMapping("/getDetail.do")//获取订单下商品信息
     public ResultBean<List<OrderItem>> getDetail(int orderId) {
         List<OrderItem> list = orderService.findItems(orderId);
         return new ResultBean<>(list);
@@ -52,7 +52,7 @@ public class AdminOrderController {
     @ResponseBody
     @RequestMapping("/send.do")
     public ResultBean<Boolean> send(int id) {
-        orderService.updateStatus(id,3);
+        orderService.updateStatus(id,3);//更新状态为发货状态
         return new ResultBean<>(true);
     }
 }

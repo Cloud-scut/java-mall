@@ -65,11 +65,7 @@ public class OrderServiceImpl implements OrderService {
         orderDao.delete(id);
     }
 
-    /**
-     * 查询订单项详情
-     * @param orderId
-     * @return
-     */
+
     @Override
     public List<OrderItem> findItems(int orderId) {
         List<OrderItem> list = orderItemDao.findByOrderId(orderId);
@@ -80,12 +76,7 @@ public class OrderServiceImpl implements OrderService {
         return list;
     }
 
-    /**
-     * 更改订单状态
-     *
-     * @param id
-     * @param status
-     */
+
     @Override
     public void updateStatus(int id, int status) {
         Order order = orderDao.findOne(id);
@@ -93,12 +84,6 @@ public class OrderServiceImpl implements OrderService {
         orderDao.save(order);
     }
 
-    /**
-     * 查找用户的订单列表
-     *
-     * @param request
-     * @return
-     */
     @Override
     public List<Order> findUserOrder(HttpServletRequest request) {
         //从session中获取登录用户的id，查找他的订单
@@ -110,11 +95,6 @@ public class OrderServiceImpl implements OrderService {
         return orders;
     }
 
-    /**
-     * 支付
-     *
-     * @param orderId
-     */
     @Override
     public void pay(int orderId) {
         //具体逻辑就不实现了，直接更改状态为 待发货
@@ -123,16 +103,6 @@ public class OrderServiceImpl implements OrderService {
             throw new RuntimeException("订单不存在");
         orderDao.updateState(STATE_WAITE_SEND,order.getId());
     }
-
-    /**
-     * 提交订单
-     *
-     * @param name
-     * @param phone
-     * @param addr
-     * @param request
-     * @param response
-     */
     @Override
     @Transactional
     public void submit(String name, String phone, String addr, HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -162,11 +132,6 @@ public class OrderServiceImpl implements OrderService {
         response.sendRedirect("/mall/order/toList.html");
     }
 
-    /**
-     * 确认收货
-     *
-     * @param orderId
-     */
     @Override
     public void receive(int orderId) {
         Order order = orderDao.findOne(orderId);

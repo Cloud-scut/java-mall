@@ -3,28 +3,21 @@ package priv.jesse.mall.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 
-/**
- * 订单项
- */
+
 @Entity
 public class OrderItem implements Serializable {
     @Id
     @GeneratedValue
     @Column
     private Integer id;
-
     @Column
     private Integer orderId;
-
     @Column
     private Integer productId;
-
     @Column
     private Integer count;
-
     @Column
     private Double subTotal;
-
     @Transient
     private Product product;
 

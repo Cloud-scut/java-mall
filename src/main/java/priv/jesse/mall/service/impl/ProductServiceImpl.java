@@ -30,22 +30,13 @@ public class ProductServiceImpl implements ProductService {
         return productDao.findAll(pageable);
     }
 
-    /**
-     * 查找热门商品
-     *
-     * @return
-     */
+
     @Override
     public List<Product> findHotProduct() {
         return productDao.findByIsHot(1, null);
     }
 
-    /**
-     * 查找最新商品
-     *
-     * @param pageable
-     * @return
-     */
+
     @Override
     public List<Product> findNewProduct(Pageable pageable) {
         // 查找两周内上架的商品
@@ -54,13 +45,6 @@ public class ProductServiceImpl implements ProductService {
         return productDao.findNew(pageable);
     }
 
-    /**
-     * 根据一级分类查找商品
-     *
-     * @param cid
-     * @param pageable
-     * @return
-     */
     @Override
     public List<Product> findByCid(int cid, Pageable pageable) {
         //查找出所有二级分类
@@ -72,13 +56,6 @@ public class ProductServiceImpl implements ProductService {
         return productDao.findByCsidIn(secIds,pageable);
     }
 
-    /**
-     * 根据二级分类查找商品
-     *
-     * @param csid
-     * @param pageable
-     * @return
-     */
     @Override
     public List<Product> findByCsid(int csid, Pageable pageable) {
         return productDao.findByCsid(csid,pageable);

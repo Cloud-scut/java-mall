@@ -19,18 +19,17 @@ import java.util.List;
 public class UserController {
     @Autowired
     private UserService userService;
-
     @RequestMapping("/toRegister.html")
     public String toRegister() {
         return "mall/user/register";
-    }
+    }//加载注册页面
 
     @RequestMapping("/toLogin.html")
     public String toLogin() {
         return "mall/user/login";
-    }
+    }//加载登录页面
 
-    @RequestMapping("/login.do")
+    @RequestMapping("/login.do")//确认登录传递请求、参数
     public void login(String username,
                       String password,
                       HttpServletRequest request,
@@ -38,7 +37,7 @@ public class UserController {
         User user = userService.checkLogin(username, password);
         if (user != null) {
             //登录成功 重定向到首页
-            request.getSession().setAttribute("user", user);
+            request.getSession().setAttribute("user", user);//设置session绑定用户
             response.sendRedirect("/mall/index.html");
         } else {
             throw new LoginException("登录失败！ 用户名或者密码错误");
@@ -46,7 +45,7 @@ public class UserController {
 
     }
 
-    @RequestMapping("/register.do")
+    @RequestMapping("/register.do")//确认注册传递请求、参数
     public void register(String username,
                          String password,
                          String name,
@@ -66,10 +65,10 @@ public class UserController {
         response.sendRedirect("/mall/user/toLogin.html");
     }
 
-    @RequestMapping("/logout.do")
+    @RequestMapping("/logout.do")//注销
     public void logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        request.getSession().removeAttribute("user");
-        response.sendRedirect("/mall/index.html");
+        request.getSession().removeAttribute("user");//接触Session
+        response.sendRedirect("/mall/index.html");//重定向回到首页
     }
 
     @ResponseBody

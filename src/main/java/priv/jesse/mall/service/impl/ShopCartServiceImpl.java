@@ -16,23 +16,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @author hfb
- * @date 2017/11/21
- */
+
 @Service
 public class ShopCartServiceImpl implements ShopCartService {
 
     @Autowired
     private ProductService productService;
 
-    /**
-     * 加购物车
-     * 将商品id保存到Session中List<Integer>中
-     *
-     * @param productId
-     * @param request
-     */
     @Override
     public void addCart(int productId, HttpServletRequest request) throws Exception {
         User loginUser = (User) request.getSession().getAttribute("user");
@@ -46,14 +36,7 @@ public class ShopCartServiceImpl implements ShopCartService {
         productIds.add(productId);
     }
 
-    /**
-     * 移除
-     *
-     * 移除session List中对应的商品Id
-     *
-     * @param productId
-     * @param request
-     */
+
     @Override
     public void remove(int productId, HttpServletRequest request) throws Exception {
         User loginUser = (User) request.getSession().getAttribute("user");
@@ -68,14 +51,7 @@ public class ShopCartServiceImpl implements ShopCartService {
         }
     }
 
-    /**
-     * 查看购物车
-     *
-     * 查询出session的List中所有的商品Id,并封装成List<OrderItem>返回
-     *
-     * @param request
-     * @return
-     */
+
     @Override
     public List<OrderItem> listCart(HttpServletRequest request) throws Exception {
         User loginUser = (User) request.getSession().getAttribute("user");
